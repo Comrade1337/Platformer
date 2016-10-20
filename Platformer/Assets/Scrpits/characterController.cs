@@ -35,7 +35,6 @@ public class characterController : MonoBehaviour
     {
         if (grounded && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
         {
-
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
         }
         GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
@@ -83,6 +82,11 @@ public class characterController : MonoBehaviour
         {
             if (!(GameObject.Find("star"))) Application.LoadLevel("scene2");
         }
+    }
+
+    void OnCollisionEnter2D(Collision col)
+    {
+
     }
 
     void OnGUI()
