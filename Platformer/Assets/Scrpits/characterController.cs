@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class characterController : MonoBehaviour
@@ -53,7 +54,8 @@ public class characterController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.R))
         {
-            Application.LoadLevel(Application.loadedLevel);
+            /*Application.LoadLevel(Application.loadedLevel);*/
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
 
@@ -70,18 +72,14 @@ public class characterController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         if ((col.gameObject.name == "dieCollider") || (col.gameObject.name == "saw"))
-            Application.LoadLevel(Application.loadedLevel);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
-        if (/*col.gameObject.name == "star"*/col.gameObject.name.Contains("star"))
+        if (col.gameObject.tag =="Star")
         {
             score++;
             Destroy(col.gameObject);
         }
 
-        if (col.gameObject.name == "endLevel")
-        {
-            if (!(GameObject.Find("star"))) Application.LoadLevel("scene2");
-        }
     }
 
     void OnGUI()
@@ -89,4 +87,11 @@ public class characterController : MonoBehaviour
         GUI.Box(new Rect(0, 0, 100, 100), "Stars: " + score);
     }
 
+}
+
+enum CharacterState
+{
+    Stay,
+    Run,
+    Jump
 }
