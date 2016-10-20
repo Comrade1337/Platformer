@@ -84,11 +84,6 @@ public class characterController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision col)
-    {
-
-    }
-
     void OnGUI()
     {
         GUI.Box(new Rect(0, 0, 100, 100), "Stars: " + score);
