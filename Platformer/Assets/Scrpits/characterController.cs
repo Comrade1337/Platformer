@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class characterController : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
     public float maxSpeed = 10f;
     public float jumpForce = 700f;
@@ -74,7 +74,7 @@ public class characterController : MonoBehaviour
         if ((col.gameObject.name == "dieCollider") || (col.gameObject.name == "saw"))
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
-        if (col.gameObject.tag =="Star")
+        if (col.gameObject.tag == "Star")
         {
             score++;
             Destroy(col.gameObject);

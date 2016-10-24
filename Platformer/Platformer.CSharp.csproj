@@ -59,10 +59,13 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>Library\UnityAssemblies\Mono.Cecil.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scrpits\characterController.cs" />
-    <Compile Include="Assets\Scrpits\newcam.cs" />
+    <Compile Include="Assets\Scrpits\CharacterController.cs" />
+    <Compile Include="Assets\Scrpits\MainCamera.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
