@@ -2,8 +2,7 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class CharacterController : MonoBehaviour
-{
+public class CharacterController : MonoBehaviour {
     public float maxSpeed = 10f;
     public float jumpForce = 700f;
     bool facingRight = true;
@@ -15,21 +14,11 @@ public class CharacterController : MonoBehaviour
     public float move;
 
     private GameObject star;
-    // Use this for initialization
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
-
-
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
-
         move = Input.GetAxis("Horizontal");
-
     }
 
     void Update()
@@ -44,9 +33,7 @@ public class CharacterController : MonoBehaviour
             Flip();
         else if (move < 0 && facingRight)
             Flip();
-
-
-
+        
         if (Input.GetKey(KeyCode.Escape))
         {
             Application.Quit();
@@ -54,7 +41,6 @@ public class CharacterController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.R))
         {
-            /*Application.LoadLevel(Application.loadedLevel);*/
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
@@ -80,6 +66,11 @@ public class CharacterController : MonoBehaviour
             Destroy(col.gameObject);
         }
 
+        if (col.gameObject.tag == "Fire")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
     }
 
     void OnGUI()
@@ -87,11 +78,4 @@ public class CharacterController : MonoBehaviour
         GUI.Box(new Rect(0, 0, 100, 100), "Stars: " + score);
     }
 
-}
-
-enum CharacterState
-{
-    Stay,
-    Run,
-    Jump
 }
