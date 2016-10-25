@@ -2,28 +2,27 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class CharacterController : MonoBehaviour {
+public class CharController : MonoBehaviour
+{
     public float maxSpeed = 10f;
     public float jumpForce = 700f;
     bool facingRight = true;
-    bool grounded = false;
+    bool isGrounded = false;
     public Transform groundCheck;
     public float groundRadius = 0.2f;
     public LayerMask whatIsGround;
     public float score;
     public float move;
 
-    private GameObject star;
-
     void FixedUpdate()
     {
-        grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         move = Input.GetAxis("Horizontal");
     }
 
     void Update()
     {
-        if (grounded && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
+        if (isGrounded && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
         {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
         }
@@ -33,7 +32,7 @@ public class CharacterController : MonoBehaviour {
             Flip();
         else if (move < 0 && facingRight)
             Flip();
-        
+
         if (Input.GetKey(KeyCode.Escape))
         {
             Application.Quit();
@@ -43,8 +42,6 @@ public class CharacterController : MonoBehaviour {
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-
-
     }
 
     void Flip()
@@ -55,22 +52,19 @@ public class CharacterController : MonoBehaviour {
         transform.localScale = theScale;
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        if ((col.gameObject.name == "dieCollider"))
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-        if (col.gameObject.tag == "Star")
+        switch (collider.gameObject.tag)
         {
-            score++;
-            Destroy(col.gameObject);
+            case "Star":
+                score++;
+                Destroy(collider.gameObject);
+                break;
+            case "Die":
+            case "Fire":
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                break;
         }
-
-        if (col.gameObject.tag == "Fire")
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-
     }
 
     void OnGUI()
