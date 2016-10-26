@@ -69,7 +69,6 @@
     <Compile Include="Assets\Scrpits\CharController.cs" />
     <Compile Include="Assets\Scrpits\CharacterState.cs" />
     <Compile Include="Assets\Scrpits\MainCamera.cs" />
-    <Compile Include="Assets\Scrpits\СharacterController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

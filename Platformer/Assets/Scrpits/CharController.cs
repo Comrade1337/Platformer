@@ -13,18 +13,12 @@ public class CharController : MonoBehaviour
     public LayerMask whatIsGround;
     public float score;
     public float move;
-    private Animator anim;
 
-    private void Start()
-    {
-        anim = GetComponent<Animator>();
-    }
 
     void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         move = Input.GetAxis("Horizontal");
-        anim.State
     }
 
     void Update()
