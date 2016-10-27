@@ -65,6 +65,9 @@ public class CharController : MonoBehaviour
             case "Fire":
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 break;
+            case "NewLevel":
+                SceneManager.LoadScene(1);
+                break;
         }
     }
 
