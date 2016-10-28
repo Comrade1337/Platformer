@@ -58,12 +58,12 @@ public class CharController : MonoBehaviour
         switch (collider.gameObject.tag)
         {
             case "Star":
-                score++;
+                Data.Score++;
                 Destroy(collider.gameObject);
                 break;
             case "Die":
             case "Fire":
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                CharacterDeath();
                 break;
             case "NewLevel":
                 SceneManager.LoadScene(1);
@@ -73,7 +73,24 @@ public class CharController : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.Box(new Rect(0, 0, 100, 100), "Stars: " + score);
+        GUI.Box(new Rect(0, 0, 100, 100), "Stars: " + Data.Score + "\nLives: " + Data.Lives);
+    }
+
+    /// <summary>
+    /// Смерть игрока
+    /// </summary>
+    void CharacterDeath()
+    {
+        Debug.Log("Death");
+        Data.Lives--;
+        if (Data.Lives <= 0)
+        {
+            Data.Lives = 5;
+            Data.Score = 0;
+            SceneManager.LoadScene(0);
+        }
+        else
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }

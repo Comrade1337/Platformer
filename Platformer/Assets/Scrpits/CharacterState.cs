@@ -2,6 +2,7 @@
 {
     Idle,
     Run,
-    Jump
+    Jump,
+    Death
 }
 
