@@ -11,7 +11,6 @@ public class CharController : MonoBehaviour
     public Transform groundCheck;
     public float groundRadius = 0.2f;
     public LayerMask whatIsGround;
-    public float score;
     public float move;
 
 
@@ -58,7 +57,7 @@ public class CharController : MonoBehaviour
         switch (collider.gameObject.tag)
         {
             case "Star":
-                Data.Score++;
+                Data.Stars++;
                 Destroy(collider.gameObject);
                 break;
             case "Die":
@@ -66,14 +65,14 @@ public class CharController : MonoBehaviour
                 CharacterDeath();
                 break;
             case "NewLevel":
-                SceneManager.LoadScene(1);
+                LoadNewLevel();
                 break;
         }
     }
 
     void OnGUI()
     {
-        GUI.Box(new Rect(0, 0, 100, 100), "Stars: " + Data.Score + "\nLives: " + Data.Lives);
+        GUI.Box(new Rect(0, 0, 100, 100), "Score: " + Data.Score + "\nStars: " + Data.Stars + "\nLives: " + Data.Lives);
     }
 
     /// <summary>
@@ -86,11 +85,19 @@ public class CharController : MonoBehaviour
         if (Data.Lives <= 0)
         {
             Data.Lives = 5;
-            Data.Score = 0;
+            Data.Stars = 0;
             SceneManager.LoadScene(0);
         }
         else
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    /// <summary>
+    /// Новый уровень
+    /// </summary>
+    void LoadNewLevel()
+    {
+        Data.Score += 1000;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
