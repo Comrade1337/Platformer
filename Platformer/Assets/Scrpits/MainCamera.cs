@@ -17,7 +17,7 @@ public class MainCamera : MonoBehaviour
             Vector3 destination = transform.position + delta;
 
             transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
-            background.position = GetComponent<Camera>().ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 20));
+            //background.position = GetComponent<Camera>().ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 20));
         }
 
     }
