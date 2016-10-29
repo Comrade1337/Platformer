@@ -5,8 +5,6 @@ public class MainCamera : MonoBehaviour
     public float dampTime = 0.15f;
     private Vector3 velocity = Vector3.zero;
     public Transform target;
-    public Transform background;
-
     
     void Update()
     {
@@ -17,7 +15,6 @@ public class MainCamera : MonoBehaviour
             Vector3 destination = transform.position + delta;
 
             transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
-            //background.position = GetComponent<Camera>().ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 20));
         }
 
     }
