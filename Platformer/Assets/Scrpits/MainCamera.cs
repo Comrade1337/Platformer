@@ -6,8 +6,8 @@ public class MainCamera : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     public Transform target;
     public Transform background;
-    
 
+    
     void Update()
     {
         if (target)

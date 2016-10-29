@@ -22,7 +22,7 @@ public class CharController : MonoBehaviour
 
     void Update()
     {
-        if (isGrounded && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
+        if (isGrounded && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) || Input.GetKeyDown(KeyCode.Space))
         {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
         }
@@ -35,13 +35,13 @@ public class CharController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Escape))
         {
-            Application.Quit();
+            //Application.Quit();
         }
 
-        if (Input.GetKey(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        //if (Input.GetKey(KeyCode.R))
+        //{
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //}
     }
 
     void Flip()
@@ -81,7 +81,6 @@ public class CharController : MonoBehaviour
     /// </summary>
     void CharacterDeath()
     {
-        Debug.Log("Death");
         Data.Lives--;
         if (Data.Lives <= 0)
         {
@@ -99,7 +98,6 @@ public class CharController : MonoBehaviour
     /// </summary>
     void LoadNewLevel()
     {
-        Data.Score += 1000;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
