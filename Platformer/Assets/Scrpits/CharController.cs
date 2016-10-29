@@ -65,6 +65,7 @@ public class CharController : MonoBehaviour
                 CharacterDeath();
                 break;
             case "NewLevel":
+                Data.CompletedLevels++;
                 LoadNewLevel();
                 break;
         }
@@ -86,6 +87,7 @@ public class CharController : MonoBehaviour
         {
             Data.Lives = 5;
             Data.Stars = 0;
+            Data.CompletedLevels = 0;
             SceneManager.LoadScene(0);
         }
         else
