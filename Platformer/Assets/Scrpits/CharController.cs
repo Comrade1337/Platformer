@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class CharController : MonoBehaviour
 {
@@ -62,6 +61,7 @@ public class CharController : MonoBehaviour
                 break;
             case "Die":
             case "Fire":
+            case "Saw":
                 CharacterDeath();
                 break;
             case "NewLevel":

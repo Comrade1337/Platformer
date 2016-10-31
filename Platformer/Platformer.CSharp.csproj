@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scrpits\Data.cs" />
     <Compile Include="Assets\Scrpits\MainCamera.cs" />
     <Compile Include="Assets\Scrpits\PortalAnimation.cs" />
+    <Compile Include="Assets\Scrpits\SawAnimation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
