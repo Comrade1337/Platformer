@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scrpits\CharacterState.cs" />
     <Compile Include="Assets\Scrpits\Data.cs" />
     <Compile Include="Assets\Scrpits\MainCamera.cs" />
+    <Compile Include="Assets\Scrpits\MovingPlatform.cs" />
     <Compile Include="Assets\Scrpits\PortalAnimation.cs" />
     <Compile Include="Assets\Scrpits\SawAnimation.cs" />
   </ItemGroup>
