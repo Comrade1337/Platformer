@@ -34,13 +34,8 @@ public class CharController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Escape))
         {
-            //Application.Quit();
+            Application.Quit();
         }
-
-        //if (Input.GetKey(KeyCode.R))
-        //{
-        //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        //}
     }
 
     void Flip()
@@ -73,7 +68,7 @@ public class CharController : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.Box(new Rect(0, 0, 100, 100), "Score: " + Data.Score + "\nStars: " + Data.Stars + "\nLives: " + Data.Lives);
+        GUI.Box(new Rect(0, 0, 100, 100), "Score: " + Data.Score + "\nStars: " + Data.Stars + "\nLives: " + Data.Lives + "\nAllStars: " + Data.StarTotal);
     }
 
     /// <summary>
@@ -82,11 +77,13 @@ public class CharController : MonoBehaviour
     void CharacterDeath()
     {
         Data.Lives--;
+        Data.Stars = 0;
         if (Data.Lives <= 0)
         {
             Data.Lives = 5;
             Data.Stars = 0;
             Data.CompletedLevels = 0;
+            Data.StarTotal = 0;
             SceneManager.LoadScene(0);
         }
         else

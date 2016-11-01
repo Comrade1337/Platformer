@@ -4,6 +4,7 @@
     static int _stars;
     static int _lives = 5;
     static int _completedLevels = 0;
+    static int _starTotal = 0;
 
     public static int Stars
     {
@@ -14,6 +15,7 @@
 
         set
         {
+            _starTotal += (value == 0) ? 0 : value - _stars;
             _stars = value;
 
             if (_stars >= 100)
@@ -39,7 +41,7 @@
     {
         get
         {
-            _score = _stars * 100 + _completedLevels * 1000;
+            _score = _starTotal * 100 + _completedLevels * 1000;
             return _score;
         }
 
@@ -58,6 +60,18 @@
         set
         {
             _completedLevels = value;
+        }
+    }
+    public static int StarTotal
+    {
+        get
+        {
+            return _starTotal;
+        }
+
+        set
+        {
+            _starTotal = value;
         }
     }
 }
