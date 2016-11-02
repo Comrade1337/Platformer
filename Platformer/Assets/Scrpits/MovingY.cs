@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MovingSaw : MonoBehaviour {
+public class MovingY : MonoBehaviour
+{
     public float delta;
-    public float speed = 0.05f;
-    public bool movingOnX;
-    public bool movingOnY;
+    public float speed;
 
     Vector3 _startPosition;
     Vector3 _finishPosition;
@@ -13,12 +12,21 @@ public class MovingSaw : MonoBehaviour {
 
     void Awake()
     {
-        _startPosition = transform.position;
-        _finishPosition.y = _startPosition.y + delta;
+        if (delta > 0)
+        {
+            _startPosition = transform.position;
+            _finishPosition.y = _startPosition.y + delta;
+        }
+        else
+        {
+            _startPosition.y = _startPosition.y + delta;
+            _finishPosition = transform.position;
+        }
     }
 
     void FixedUpdate()
     {
+
         if (transform.position.y >= _finishPosition.y)
             movingUp = false;
         if (transform.position.y <= _startPosition.y)

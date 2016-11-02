@@ -7,6 +7,7 @@ public class CharController : MonoBehaviour
     public float jumpForce = 700f;
     bool facingRight = true;
     bool isGrounded = false;
+
     public Transform groundCheck;
     public float groundRadius = 0.2f;
     public LayerMask whatIsGround;
@@ -64,11 +65,6 @@ public class CharController : MonoBehaviour
                 LoadNewLevel();
                 break;
         }
-    }
-
-    void OnGUI()
-    {
-        GUI.Box(new Rect(0, 0, 100, 100), "Score: " + Data.Score + "\nStars: " + Data.Stars + "\nLives: " + Data.Lives + "\nAllStars: " + Data.StarTotal);
     }
 
     /// <summary>
