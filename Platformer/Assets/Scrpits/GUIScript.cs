@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class GUIScript : MonoBehaviour {
     public Font font;
-    
+    public Color color;
+
     GUIStyle guiStyle = new GUIStyle();
 
     void Awake()
@@ -14,7 +14,10 @@ public class GUIScript : MonoBehaviour {
 
     void OnGUI()
     {
-        GUI.Label(new Rect(10, 10, 100, 100), "Score: " + Data.Score + "\n\nStars: " + Data.Stars + "\nLives: " + Data.Lives, guiStyle);
+        GUI.Label(new Rect(10, 10, 100, 100), 
+            "Score: " + Data.Score + 
+            "\n\nStars: " + Data.Stars + 
+            "\nLives: " + Data.Lives, guiStyle);
     }
 
 }
