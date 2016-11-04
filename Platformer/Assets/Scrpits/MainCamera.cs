@@ -5,6 +5,11 @@ public class MainCamera : MonoBehaviour
     public float dampTime = 0.15f;
     private Vector3 velocity = Vector3.zero;
     public Transform target;
+
+    void Awake()
+    {
+        target = FindObjectOfType<CharController>().transform;
+    }
     
     void Update()
     {
