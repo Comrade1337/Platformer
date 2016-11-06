@@ -1,8 +1,7 @@
-﻿enum CharacterState : int
+﻿enum CharState
 {
     Idle,
     Run,
     Jump,
     Death
 }
-

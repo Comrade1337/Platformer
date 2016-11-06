@@ -7,12 +7,23 @@ public class CharController : MonoBehaviour
     public float jumpForce = 700f;
     bool facingRight = true;
     bool isGrounded = false;
+    Animator animator;
+    CharState State
+    {
+        get { return (CharState)animator.GetInteger("State"); }
+        set { animator.SetInteger("State", (int)value); }
+    }
 
     public Transform groundCheck;
     public float groundRadius = 0.2f;
     public LayerMask whatIsGround;
     public float move;
 
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void FixedUpdate()
     {
@@ -22,29 +33,17 @@ public class CharController : MonoBehaviour
 
     void Update()
     {
-        if (isGrounded && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) || Input.GetKeyDown(KeyCode.Space))
-        {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
-        }
-        GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        State = CharState.Idle;
+
+        if (isGrounded && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)))
+            Jump();
+
+        Run();
 
         if (move > 0 && !facingRight)
             Flip();
         else if (move < 0 && facingRight)
             Flip();
-
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-    }
-
-    void Flip()
-    {
-        facingRight = !facingRight;
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -65,6 +64,29 @@ public class CharController : MonoBehaviour
                 LoadNewLevel();
                 break;
         }
+    }
+
+    void Run()
+    {
+        GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        if (isGrounded) State = CharState.Run;
+    }
+
+    void Jump()
+    {
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
+        if (!isGrounded) State = CharState.Jump;
+    }
+
+    /// <summary>
+    /// Разворот игрока
+    /// </summary>
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 
     /// <summary>
