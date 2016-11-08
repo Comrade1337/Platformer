@@ -1,10 +1,15 @@
-﻿public static class Data
+﻿public class Data
 {
     static int _score;
     static int _stars;
     static int _lives = 5;
     static int _completedLevels = 0;
     static int _starTotal = 0;
+
+    static Data()
+    {
+
+    }
 
     public static int Stars
     {

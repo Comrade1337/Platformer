@@ -34,6 +34,8 @@ public class CharController : MonoBehaviour
     void Update()
     {
         State = CharState.Idle;
+        if (!isGrounded) State = CharState.Jump;
+        else if (move != 0) State = CharState.Run;
 
         if (isGrounded && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)))
             Jump();
@@ -69,13 +71,11 @@ public class CharController : MonoBehaviour
     void Run()
     {
         GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        if (isGrounded) State = CharState.Run;
     }
 
     void Jump()
     {
         GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
-        if (!isGrounded) State = CharState.Jump;
     }
 
     /// <summary>
@@ -84,9 +84,7 @@ public class CharController : MonoBehaviour
     void Flip()
     {
         facingRight = !facingRight;
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 
     /// <summary>
