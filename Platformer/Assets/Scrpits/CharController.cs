@@ -5,6 +5,7 @@ public class CharController : MonoBehaviour
 {
     public float maxSpeed = 10f;
     public float jumpForce = 700f;
+
     bool facingRight = true;
     bool isGrounded = false;
     Animator animator;

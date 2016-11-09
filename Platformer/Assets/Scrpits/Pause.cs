@@ -1,22 +1,21 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
-    bool paused = false;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-            if (!paused)
+            if (!Data.Paused)
             {
                 Time.timeScale = 0;
-                paused = true;
+                Data.Paused = true;
             }
             else
             {
                 Time.timeScale = 1;
-                paused = false;
+                Data.Paused = false;
             }
     }
 }

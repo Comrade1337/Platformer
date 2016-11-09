@@ -6,6 +6,7 @@
     static int _completedLevels = 0;
     static int _starTotal = 0;
 
+
     static Data()
     {
 
@@ -79,4 +80,5 @@
             _starTotal = value;
         }
     }
+    public static bool Paused { get; set; }
 }

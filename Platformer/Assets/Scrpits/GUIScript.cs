@@ -3,7 +3,6 @@
 public class GUIScript : MonoBehaviour
 {
     public Font font;
-    public Color color;
 
     GUIStyle guiStyle = new GUIStyle();
 
