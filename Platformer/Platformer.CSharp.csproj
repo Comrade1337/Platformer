@@ -72,7 +72,6 @@
     <Compile Include="Assets\Scrpits\GUIScript.cs" />
     <Compile Include="Assets\Scrpits\MainCamera.cs" />
     <Compile Include="Assets\Scrpits\MovingY.cs" />
-    <Compile Include="Assets\Scrpits\Pause.cs" />
     <Compile Include="Assets\Scrpits\PauseGUI.cs" />
     <Compile Include="Assets\Scrpits\PortalAnimation.cs" />
     <Compile Include="Assets\Scrpits\SawAnimation.cs" />
