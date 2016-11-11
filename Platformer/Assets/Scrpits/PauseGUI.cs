@@ -58,7 +58,7 @@ public class PauseGUI : MonoBehaviour
             {
                 Data.Paused = false;
                 timer = 0;
-                //Application.LoadLevel("Menu");
+                SceneManager.LoadScene("MainMenu");
             }
         }
     }
