@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 public class SwitchLevelGUI : MonoBehaviour
 {
     public GUIStyle guiButtonStyle = new GUIStyle();
+    public GUIStyle guiArrowLeftStyle = new GUIStyle();
+    public GUIStyle guiArrowRightStyle = new GUIStyle();
     GUIStyle guiTextStyle = new GUIStyle();
 
     void Awake()
@@ -53,6 +55,13 @@ public class SwitchLevelGUI : MonoBehaviour
         if (GUI.Button(new Rect(Screen.width / 2 + 60f, Screen.height / 2 + 60f, 100f, 100f), "9", guiButtonStyle))
         {
             SceneManager.LoadScene("Level9");
+        }
+
+        if (GUI.Button(new Rect(Screen.width / 2 - 340f, Screen.height / 2 - 50f, 100f, 100f),"", guiArrowLeftStyle))
+        {
+        }
+        if (GUI.Button(new Rect(Screen.width / 2 + 210f, Screen.height / 2 - 50f, 100f, 100f), "", guiArrowRightStyle))
+        {
         }
     }
 }

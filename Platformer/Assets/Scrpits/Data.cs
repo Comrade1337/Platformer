@@ -2,14 +2,17 @@
 {
     static int _score;
     static int _stars;
-    static int _lives = 5;
-    static int _completedLevels = 0;
-    static int _starTotal = 0;
-
+    static int _lives;
+    static int _completedLevels;
+    static int _starTotal;
 
     static Data()
     {
-
+        _score = 0;
+        _stars = 0;
+        _lives = 5;
+        _completedLevels = 0;
+        _starTotal = 0;
     }
 
     public static int Stars
