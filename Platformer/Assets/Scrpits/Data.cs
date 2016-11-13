@@ -1,4 +1,8 @@
-﻿public class Data
+﻿using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class Data
 {
     static int _score;
     static int _stars;
@@ -84,4 +88,12 @@
         }
     }
     public static bool Paused { get; set; }
+
+    public static string CurrentLevelName
+    {
+        get
+        {
+            return SceneManager.GetActiveScene().name;
+        }
+    }
 }
