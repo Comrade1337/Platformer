@@ -9,18 +9,25 @@ public class GameOverGUI : MonoBehaviour
     void Awake()
     {
         guiTextStyle.font = font;
-        guiTextStyle.fontSize = 40;
+        guiTextStyle.fontSize = 50;
         guiTextStyle.normal.textColor = new Color(0.4F, 0.4F, 0.4F);
+        guiTextStyle.hover.textColor = new Color(0F, 0F, 0F);
+        guiTextStyle.hover.background = Texture2D.blackTexture;
         guiTextStyle.alignment = TextAnchor.MiddleCenter;
     }
 
     void OnGUI()
     {
         string score = string.Format("[ ваш окончательный счёт: {0}]", Data.Score);
-        string star = string.Format("[ собрано звёзд {0}]", Data.StarTotal);
+        string star = string.Format("[ собрано звёзд: {0}]", Data.StarTotal);
 
-        GUI.Label(new Rect(Screen.width / 2 - 150f, Screen.height / 2 - 150f, 300f, 45f), "[ игра пройдена ! ]", guiTextStyle);
-        GUI.Label(new Rect(Screen.width / 2 - 150f, Screen.height / 2 - 50f, 300f, 45f), score, guiTextStyle);
-        GUI.Label(new Rect(Screen.width / 2 - 150f, Screen.height / 2, 300f, 45f), star, guiTextStyle);
+        GUI.Label(new Rect(0, Screen.height / 2 - 150f, Screen.width, 45f), "[ игра пройдена ! ]", guiTextStyle);
+        GUI.Label(new Rect(0, Screen.height / 2 - 50f, Screen.width, 45f), score, guiTextStyle);
+        GUI.Label(new Rect(0, Screen.height / 2, Screen.width, 45f), star, guiTextStyle);
+
+        if (GUI.Button(new Rect(0, Screen.height / 2 + 100, Screen.width, 45f), "[ выход ]", guiTextStyle))
+        {
+            Application.Quit();
+        }
     }
 }
