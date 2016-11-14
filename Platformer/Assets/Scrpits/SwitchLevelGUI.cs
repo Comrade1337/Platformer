@@ -62,6 +62,8 @@ public class SwitchLevelGUI : MonoBehaviour
         }
         if (GUI.Button(new Rect(Screen.width / 2 + 210f, Screen.height / 2 - 50f, 100f, 100f), "", guiArrowRightStyle))
         {
+
+            Game.Load();
         }
     }
 }

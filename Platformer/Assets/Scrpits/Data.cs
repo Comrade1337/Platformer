@@ -9,14 +9,11 @@ public class Data
     static int _lives;
     static int _completedLevels;
     static int _starTotal;
+    static int _currentLevelIndex;
 
     static Data()
     {
-        _score = 0;
-        _stars = 0;
-        _lives = 5;
-        _completedLevels = 0;
-        _starTotal = 0;
+        DefaultValues();
     }
 
     public static int Stars
@@ -88,12 +85,24 @@ public class Data
         }
     }
     public static bool Paused { get; set; }
-
-    public static string CurrentLevelName
+    public static int CurrentLevelIndex
     {
         get
         {
-            return SceneManager.GetActiveScene().name;
+            return SceneManager.GetActiveScene().buildIndex;
         }
+        set { _currentLevelIndex = value; }
+    }
+
+    /// <summary>
+    /// Значения по умолчанию
+    /// </summary>
+    public static void DefaultValues()
+    {
+        _score = 0;
+        _stars = 0;
+        _lives = 5;
+        _completedLevels = 0;
+        _starTotal = 0;
     }
 }

@@ -113,5 +113,6 @@ public class CharController : MonoBehaviour
     void LoadNewLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Game.Save();
     }
 }
