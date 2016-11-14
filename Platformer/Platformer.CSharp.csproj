@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scrpits\Data.cs" />
     <Compile Include="Assets\Scrpits\GUIScript.cs" />
     <Compile Include="Assets\Scrpits\Game.cs" />
+    <Compile Include="Assets\Scrpits\GameOverGUI.cs" />
     <Compile Include="Assets\Scrpits\MainCamera.cs" />
     <Compile Include="Assets\Scrpits\MovingY.cs" />
     <Compile Include="Assets\Scrpits\PauseGUI.cs" />

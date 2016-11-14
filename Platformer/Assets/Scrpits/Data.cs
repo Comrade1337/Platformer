@@ -8,7 +8,6 @@ public class Data
     static int _lives;
     static int _completedLevels;
     static int _starTotal;
-    static int _currentLevelIndex;
 
     static Data()
     {

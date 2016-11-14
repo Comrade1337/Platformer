@@ -34,13 +34,8 @@ public class CharController : MonoBehaviour
 
     void Update()
     {
-        State = CharState.Idle;
-        if (!isGrounded) State = CharState.Jump;
-        else if (move != 0) State = CharState.Run;
-
-        if (isGrounded && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)))
-            Jump();
-
+        CharacterAnimation();
+        Jump();
         Run();
 
         if (move > 0 && !facingRight)
@@ -82,7 +77,8 @@ public class CharController : MonoBehaviour
     /// </summary>
     void Jump()
     {
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
+        if (isGrounded && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)))
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
     }
 
     /// <summary>
@@ -121,4 +117,15 @@ public class CharController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Game.Save();
     }
+
+    /// <summary>
+    /// Анимация игрока
+    /// </summary>
+    void CharacterAnimation()
+    {
+        State = CharState.Idle;
+        if (!isGrounded) State = CharState.Jump;
+        else if (move != 0) State = CharState.Run;
+    }
+
 }
