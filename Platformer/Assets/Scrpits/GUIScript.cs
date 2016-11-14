@@ -20,5 +20,4 @@ public class GUIScript : MonoBehaviour
             "\n\nStars: " + Data.Stars +
             "\nLives: " + Data.Lives, guiStyle);
     }
-
 }

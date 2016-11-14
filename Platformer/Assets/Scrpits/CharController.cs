@@ -69,11 +69,17 @@ public class CharController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Бег
+    /// </summary>
     void Run()
     {
         GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
     }
 
+    /// <summary>
+    /// Прыжок
+    /// </summary>
     void Jump()
     {
         GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));

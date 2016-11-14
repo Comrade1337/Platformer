@@ -6,6 +6,7 @@ public class SwitchLevelGUI : MonoBehaviour
     public GUIStyle guiButtonStyle = new GUIStyle();
     public GUIStyle guiArrowLeftStyle = new GUIStyle();
     public GUIStyle guiArrowRightStyle = new GUIStyle();
+
     GUIStyle guiTextStyle = new GUIStyle();
 
     void Awake()
@@ -14,6 +15,7 @@ public class SwitchLevelGUI : MonoBehaviour
         guiTextStyle.fontSize = 40;
         guiTextStyle.normal.textColor = new Color(0.4F, 0.4F, 0.4F);
     }
+
     public void OnGUI()
     {
         GUI.Label(new Rect(Screen.width / 2 - 120f, Screen.height / 2 - 220f, 240f, 50f), "[ выбор уровня ]", guiTextStyle);
@@ -59,10 +61,10 @@ public class SwitchLevelGUI : MonoBehaviour
 
         if (GUI.Button(new Rect(Screen.width / 2 - 340f, Screen.height / 2 - 50f, 100f, 100f),"", guiArrowLeftStyle))
         {
+            SceneManager.LoadScene("SwitchGame");
         }
         if (GUI.Button(new Rect(Screen.width / 2 + 210f, Screen.height / 2 - 50f, 100f, 100f), "", guiArrowRightStyle))
         {
-
             Game.Load();
         }
     }

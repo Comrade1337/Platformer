@@ -16,7 +16,8 @@ public class PauseGUI : MonoBehaviour
         guiTextStyle.font = font;
         guiTextStyle.fontSize = 50;
         guiTextStyle.normal.textColor = new Color(0.2F, 0.2F, 0.2F);
-                
+        guiTextStyle.alignment = TextAnchor.MiddleCenter;
+
         guiButtonStyle.font = font;
         guiButtonStyle.fontSize = 45;
     }
@@ -40,6 +41,7 @@ public class PauseGUI : MonoBehaviour
             isGuiPause = false;
         }
     }
+
     public void OnGUI()
     {
         if (isGuiPause)

@@ -1,5 +1,4 @@
 ﻿using System;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Data
@@ -28,10 +27,10 @@ public class Data
             _starTotal += (value == 0) ? 0 : value - _stars;
             _stars = value;
 
-            if (_stars >= 100)
+            if (_stars >= 10)
             {
                 _lives++;
-                _stars -= 100;
+                _stars -= 10;
             }
         }
     }
@@ -91,7 +90,6 @@ public class Data
         {
             return SceneManager.GetActiveScene().buildIndex;
         }
-        set { _currentLevelIndex = value; }
     }
 
     /// <summary>
