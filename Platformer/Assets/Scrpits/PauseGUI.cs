@@ -20,6 +20,7 @@ public class PauseGUI : MonoBehaviour
 
         guiButtonStyle.font = font;
         guiButtonStyle.fontSize = 45;
+        guiButtonStyle.alignment = TextAnchor.MiddleCenter;
     }
 
     void Update()
@@ -46,26 +47,26 @@ public class PauseGUI : MonoBehaviour
     {
         if (isGuiPause)
         {
-            GUI.Box(new Rect(Screen.width / 2 - 170f, 0, 340f, Screen.height),"",guiBackgroundStyle);
+            GUI.Box(new Rect(Screen.width / 2 - 200f, 0, 400f, Screen.height),"",guiBackgroundStyle);
 
-            GUI.Label(new Rect(Screen.width / 2 - 75f, Screen.height / 2 - 150f, 150f, 45f), "[ пауза ]", guiTextStyle);
+            GUI.Label(new Rect(0, Screen.height / 2 - 150f, Screen.width, 45f), "[ пауза ]", guiTextStyle);
 
-            if (GUI.Button(new Rect(Screen.width / 2 - 120f, Screen.height / 2 - 50f, 260f, 45f), "[ продолжить ]", guiButtonStyle))
+            if (GUI.Button(new Rect(0, Screen.height / 2 - 50f, Screen.width, 45f), "[ продолжить ]", guiButtonStyle))
             {
                 Data.Paused = false;
                 timer = 0;
             }
-            if (GUI.Button(new Rect(Screen.width / 2 - 100f, Screen.height / 2, 220f, 45f), "[ сохранить ]", guiButtonStyle))
+            if (GUI.Button(new Rect(0, Screen.height / 2, Screen.width, 45f), "[ сохранить ]", guiButtonStyle))
             {
                 Game.Save();
             }
-            if (GUI.Button(new Rect(Screen.width / 2 - 80f, Screen.height / 2 + 50, 180f, 45f), "[ в меню ]", guiButtonStyle))
+            if (GUI.Button(new Rect(0, Screen.height / 2 + 50, Screen.width, 45f), "[ в меню ]", guiButtonStyle))
             {
                 Data.Paused = false;
                 timer = 0;
                 SceneManager.LoadScene("MainMenu");
             }
-            if (GUI.Button(new Rect(Screen.width / 2 - 140f, Screen.height / 2 + 100, 300f, 45f), "[ выйти из игры ]", guiButtonStyle))
+            if (GUI.Button(new Rect(0, Screen.height / 2 + 100, Screen.width, 45f), "[ выйти из игры ]", guiButtonStyle))
             {
                 Application.Quit();
             }
