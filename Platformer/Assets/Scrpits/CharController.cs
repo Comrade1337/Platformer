@@ -96,6 +96,7 @@ public class CharController : MonoBehaviour
     void CharacterDeath()
     {
         Data.Lives--;
+        Data.DieCounter++;
         Data.Stars = 0;
         if (Data.Lives <= 0)
         {

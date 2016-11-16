@@ -90,6 +90,8 @@ public class Data
             return SceneManager.GetActiveScene().buildIndex;
         }
     }
+    public static int DieCounter
+    { get; set; }
 
     /// <summary>
     /// Значения по умолчанию
