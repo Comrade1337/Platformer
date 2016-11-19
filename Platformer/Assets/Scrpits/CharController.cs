@@ -20,7 +20,6 @@ public class CharController : MonoBehaviour
     public LayerMask whatIsGround;
     public float move;
 
-
     void Awake()
     {
         animator = GetComponent<Animator>();

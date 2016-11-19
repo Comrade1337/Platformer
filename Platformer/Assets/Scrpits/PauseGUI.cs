@@ -19,7 +19,10 @@ public class PauseGUI : MonoBehaviour
         guiTextStyle.alignment = TextAnchor.MiddleCenter;
 
         guiButtonStyle.font = font;
-        guiButtonStyle.fontSize = 45;
+        guiButtonStyle.fontSize = 50;
+        guiButtonStyle.normal.textColor = new Color(0.4F, 0.4F, 0.4F);
+        guiButtonStyle.hover.textColor = new Color(0F, 0F, 0F);
+        guiButtonStyle.hover.background = Texture2D.blackTexture;
         guiButtonStyle.alignment = TextAnchor.MiddleCenter;
     }
 

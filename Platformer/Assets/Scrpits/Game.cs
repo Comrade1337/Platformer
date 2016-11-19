@@ -37,6 +37,7 @@ class Game
         root.Add(new XElement("completedLevels", Data.CompletedLevels));
         root.Add(new XElement("starTotal", Data.StarTotal));
         root.Add(new XElement("currentLevelIndex", Data.CurrentLevelIndex));
+        root.Add(new XElement("dieCounter", Data.DieCounter));
 
         XDocument saveGame = new XDocument(root);
         File.WriteAllText(path, saveGame.ToString());

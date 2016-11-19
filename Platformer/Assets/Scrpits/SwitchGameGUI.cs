@@ -28,6 +28,7 @@ public class SwitchGameGUI : MonoBehaviour
         if (GUI.Button(new Rect(0, Screen.height / 2, Screen.width, 50f), "[ продолжить ]", guiButtonStyle))
         {
             Game.Load();
+            SceneManager.LoadScene("MainMenu");
         }
         if (GUI.Button(new Rect(0, Screen.height / 2 + 50f, Screen.width, 50f), "[ выйти из игры ]", guiButtonStyle))
         {
