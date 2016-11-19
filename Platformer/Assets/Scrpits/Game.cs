@@ -10,21 +10,24 @@ class Game
 
     public static void Load()
     {
-        //if (!File.Exists(path)) Data.DefaultValues();
-        //else
-        //{
-        //    XDocument saveGame = new XDocument();
-        //    saveGame = XDocument.Parse(File.ReadAllText(path)) as XDocument;
+        try
+        {
+            XDocument saveGame = new XDocument();
+            saveGame = XDocument.Parse(File.ReadAllText(path)) as XDocument;
 
-        //    Data.Score = int.Parse(saveGame.Element("score").Value);
-        //    Data.Stars = int.Parse(saveGame.Element("stars").Value);
-        //    Data.Lives = int.Parse(saveGame.Element("lives").Value);
-        //    Data.CompletedLevels = int.Parse(saveGame.Element("completedLevels").Value);
-        //    Data.StarTotal = int.Parse(saveGame.Element("starTotal").Value);
-        //    Data.CurrentLevelIndex = int.Parse(saveGame.Element("currentLevelIndex").Value);
-
-        //    SceneManager.LoadScene(Data.CurrentLevelIndex + 1);
-        //}
+            Data.Score = int.Parse(saveGame.Element("score").Value);
+            Data.Stars = int.Parse(saveGame.Element("stars").Value);
+            Data.Lives = int.Parse(saveGame.Element("lives").Value);
+            Data.CompletedLevels = int.Parse(saveGame.Element("completedLevels").Value);
+            Data.StarTotal = int.Parse(saveGame.Element("starTotal").Value);
+            //Data.CurrentLevelIndex = int.Parse(saveGame.Element("currentLevelIndex").Value);
+            SceneManager.LoadScene(Data.CurrentLevelIndex + 1);
+        }
+        catch
+        {
+            Data.DefaultValues();
+            SceneManager.LoadScene("Level1");
+        }
     }
 
     public static void Save()

@@ -103,5 +103,6 @@ public class Data
         _lives = 5;
         _completedLevels = 0;
         _starTotal = 0;
+        DieCounter = 0;
     }
 }

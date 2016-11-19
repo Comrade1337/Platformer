@@ -12,8 +12,9 @@ public class SwitchGameGUI : MonoBehaviour
         guiTextStyle.font = guiButtonStyle.font;
         guiTextStyle.fontSize = 50;
         guiTextStyle.normal.textColor = new Color(0.4F, 0.4F, 0.4F);
-        guiButtonStyle.hover.background = Texture2D.blackTexture;
         guiTextStyle.alignment = TextAnchor.MiddleCenter;
+
+        guiButtonStyle.hover.background = Texture2D.blackTexture;
         guiButtonStyle.alignment = TextAnchor.MiddleCenter;
     }
 
