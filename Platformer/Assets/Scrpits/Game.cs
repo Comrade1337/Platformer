@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 
 class Game
 {
-    static readonly string path = Application.persistentDataPath + "/savegame.xml";
+    static readonly string path = Application.persistentDataPath + @"/savegame.xml";
 
     public static void Load()
     {
         try
         {
-            XDocument saveGame = new XDocument();
-            saveGame = XDocument.Parse(File.ReadAllText(path)) as XDocument;
+            XElement saveGame = null;
+            saveGame = XDocument.Parse(File.ReadAllText(path)).Element("root");
 
             Data.Score = int.Parse(saveGame.Element("score").Value);
             Data.Stars = int.Parse(saveGame.Element("stars").Value);
@@ -21,7 +21,7 @@ class Game
             Data.CompletedLevels = int.Parse(saveGame.Element("completedLevels").Value);
             Data.StarTotal = int.Parse(saveGame.Element("starTotal").Value);
             //Data.CurrentLevelIndex = int.Parse(saveGame.Element("currentLevelIndex").Value);
-            SceneManager.LoadScene(Data.CurrentLevelIndex + 1);
+            SceneManager.LoadScene(Data.CurrentLevelIndex);
         }
         catch
         {
